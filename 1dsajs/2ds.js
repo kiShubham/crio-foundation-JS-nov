@@ -737,6 +737,16 @@ console.log(mySet);
 //  ---------------------------Hash MAP;-------------------------------not a map() function
 /*
 const map1 = new Map();
+// adding in map.
+for (let i = 0; i < n; map1[arr[i]]++, i++);// only work for array holding numbers.
+
+//this one work for arr holding no. and alphabets,characters;
+  // for (var i = 0; i < n; i++) {
+  //   if (map1.has(arr[i])) {
+  //     map1.set(arr[i], map1.get(arr[i]) + 1)
+  //   }
+  //   else map1.set(arr[i], 1)
+  // }
 
 map1.set('a', 1);
 map1.set('a', 2);
@@ -1388,7 +1398,7 @@ console.log(subarraysWithKDistinct(nums,2) )
 // arr[3] = arr[5];
 // arr[5] = temp
 // console.log(arr)
-
+/*
 function nextGreaterElementWithSameSetOfDigits(n) {
 
   let text = n.toString();
@@ -1473,4 +1483,208 @@ let num = 2147483647;
 console.log(nextGreaterElementWithSameSetOfDigits(num))
 //230142 x
 //230421
+*/
 //=------------------------=================================
+/*
+Q.A string S is given consisting of lowercase alphabetical characters only. You need to return a sorted string using Count Sort.
+*/
+//this is not working 
+/*
+const str = "abcdeedcba"// ans.aabbccddee
+function countSort(n, str) {
+  //making originalArray
+  let oA = str.split('');
+
+
+  let map1 = new Map();
+
+  // for (let i = 0; i < n; map1[oA[i]]++, i++);
+  for (var i = 0; i < n; i++) {
+    if (map1.has(oA[i])) {
+      map1.set(oA[i], map1.get(oA[i]) + 1)
+    }
+    else map1.set(oA[i], 1)
+  }
+  console.log(map1)
+  */
+ // let ans =  
+ //  for(const[key ,value] of map1 ){
+ //    console.log(key,value)
+ //  }
+
+  
+  // console.log(map1.size)//5;
+  // var arr = Object.keys(map1)  
+  // var arr = Object.keys(map1)  
+    // console.log(arr);
+  // making countArray;
+  // let cA = new Array(map1.size)
+  // for (var i = 0; i < n; i++) {
+  //   if (map1.has(oA[i])) {
+  //       cA = map1.get(oA[i])
+  //     // console.log(temp)
+  //   }
+  //   cA[oA[i]] = map1.get(oA[i])
+  // }
+  // console.log(cA);
+  // //make positionArray;
+  // let pA = new Array(map1.size); 
+  // for (var i = 0; i < map1.size; i++){
+
+  // }
+  // let sA = new Array(n);
+  // let count = 0; 
+  // for( var i=0; i< n ; i++){
+
+
+  // }
+
+// }
+// countSort(10, str)
+
+/*
+
+const countingSort = (vec, n) => {
+
+  // map to store the count of each element
+  const count = {};
+
+  // initialize every element of count to 0 from 0 to n-1
+  for (let i = 0; i < n; count[i] = 0, i++);
+
+  // store count of every element
+
+  for (let i = 0; i < n; count[vec[i]]++, i++);
+
+  console.log(count);
+  const sortedArr = [];
+  let i = 0;
+  while (n > 0) {
+
+    // if the count of the element is 0, then increment i
+    // and move to the next element
+    if (count[i] === 0) {
+      i++;
+    }
+
+    // else, insert the element into the sorted array,
+    // decrement count[element] and n by 1
+    else {
+      sortedArr.push(i);
+      count[i]--;
+      n--;
+    }
+  }
+  return sortedArr;
+};
+var num = [1, 2, 3, 4, 4, 5]
+console.log(countingSort(num, 10))
+*/
+
+
+// var obj = { "a" : 1, "b" : 2, "c" : 3};
+// console.log(Object.keys(obj));
+
+ // console.log(Character.getNumericValue("a"))
+
+//-------------------======================================
+//You are given a X positive integer. You need to find the N-th root of X.
+
+// If the N-th root is in decimal you need to print its floor value e.g, floor(3.23) = 3.
+
+// let n = Math.pow (100 , 10000)
+/*
+function nthRoot(x, n) {
+    let l = 1;
+    let r = x;
+    while(l <= r){
+        
+        let mid = Math.floor((l+r)/2);
+        let midPow = Math.pow(mid,n)
+
+        // console.log( l , r )
+
+        if( l == r || midPow == x){ 
+            return mid 
+        
+        }else if( midPow > x ){
+            r = mid -1 //ceiling value could not be the answer so exclude .
+        
+        }else {
+            l = mid  //floor vlaue can be the answer .
+        }
+
+    }
+}
+console.log(nthRoot(82,2));
+// 6
+// 44 1  = 44
+// 29 4  = 2 
+// 64 4  = 2
+// 90 4  = 3
+// 14 3  = 2
+// 82 2  = 9
+*/
+
+//-------------------------------
+function moveZeroes(nums) {
+    //first sort it 
+    
+    // let idx = 0;//index of first number other than 0;
+    //binary or linear to each first index of 1
+  let n= nums.length
+  for(var i= 0; i < n; i++){
+    // let k = 0
+    if(nums[i+1]==0){
+      for(var j = i+1;j < n; j++ ){
+        nums[j] = nums[j+1]
+      }
+      nums[n-1] = "k";
+    }
+    if(nums[i]==0){
+      for(var j = i;j < n; j++ ){
+        nums[j] = nums[j+1]
+      }
+      nums[n-1] = "k";
+    
+    }
+    if(nums[i-1]==0){
+      for(var j = i-1;j < n; j++ ){
+        nums[j] = nums[j+1]
+      }
+      nums[n-1] = "k";
+    
+    }
+  }
+  for(var i= 0; i < n; i++){
+    // let k = 0
+    if(nums[i+1]==0){
+      for(var j = i+1;j < n; j++ ){
+        nums[j] = nums[j+1]
+      }
+      nums[n-1] = "k";
+    }
+    if(nums[i]==0){
+      for(var j = i;j < n; j++ ){
+        nums[j] = nums[j+1]
+      }
+      nums[n-1] = "k";
+    
+    }
+    if(nums[i-1]==0){
+      for(var j = i-1;j < n; j++ ){
+        nums[j] = nums[j+1]
+      }
+      nums[n-1] = "k";
+    
+    }
+  }
+  
+    return nums;
+}
+
+// var t =[96 ,0 ,56 ,47 ,85 ,54 ,51 ,0 , 0 ,78 ,19 ,12 ,41];
+var t =[ 0 ,18, 67, 0 ,74 ,0, 74, 0 ,0 ,0 ,0 ,61 ,67]
+console.log(moveZeroes(t))
+
+// [ 96 56 47 85 54 51 78 19 12 41 0 0 0 ]
